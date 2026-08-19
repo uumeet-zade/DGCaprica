@@ -11,7 +11,7 @@ import Donate from './pages/Donate';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/DGCaprica">
       <div className="app-wrapper">
         <Navbar />
         <main>
