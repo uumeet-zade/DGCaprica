@@ -1,6 +1,6 @@
 import dgcLogo from '../assets/democraticgreensnew.png';
 import alpLogo from '../assets/Altenative_ALP_Logo.png';
-import dglLogo from '../assets/DGL.png';
+import dglLogo from '../assets/DemocraticLabor.png';
 
 export default function Partnerships() {
   return (
