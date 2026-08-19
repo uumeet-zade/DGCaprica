@@ -9,9 +9,16 @@ import Partnerships from './pages/Partnerships';
 import Join from './pages/Join';
 import Donate from './pages/Donate';
 
+// GitHub Pages URLs are case-insensitive, but React Router's basename is strictly case-sensitive.
+// This dynamically matches the casing of the URL so the app doesn't crash on a white screen!
+const basePath = '/DGCaprica';
+const dynamicBasename = window.location.pathname.toLowerCase().startsWith(basePath.toLowerCase())
+  ? window.location.pathname.substring(0, basePath.length)
+  : basePath;
+
 function App() {
   return (
-    <Router basename="/DGCaprica">
+    <Router basename={dynamicBasename}>
       <div className="app-wrapper">
         <Navbar />
         <main>
