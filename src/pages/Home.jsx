@@ -165,6 +165,80 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section-light" style={{ backgroundColor: 'var(--color-white)' }}>
+        <div className="container">
+          
+          {/* Campaign Posters Section */}
+          <div style={{ marginBottom: '8rem' }}>
+            <div className="text-center" style={{ marginBottom: '4rem' }}>
+              <h2 style={{ fontSize: '4rem' }}>Campaign Posters</h2>
+              <p style={{ fontSize: '1.25rem' }}>Official materials for the upcoming Caprican elections.</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '4rem' }}>
+              {/* Poster 1 Frame */}
+              <div style={{ 
+                backgroundColor: 'rgba(8, 6, 13, 0.03)', 
+                aspectRatio: '2/3', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                border: '2px dashed rgba(8, 6, 13, 0.2)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer'
+              }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                <span style={{ color: 'var(--color-text-muted)', fontSize: '1.5rem', fontWeight: '600', letterSpacing: '0.05em' }}>[ POSTER FRAME 1 ]</span>
+              </div>
+              {/* Poster 2 Frame */}
+              <div style={{ 
+                backgroundColor: 'rgba(8, 6, 13, 0.03)', 
+                aspectRatio: '2/3', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                border: '2px dashed rgba(8, 6, 13, 0.2)',
+                transition: 'transform 0.3s ease',
+                cursor: 'pointer'
+              }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-8px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                <span style={{ color: 'var(--color-text-muted)', fontSize: '1.5rem', fontWeight: '600', letterSpacing: '0.05em' }}>[ POSTER FRAME 2 ]</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Upcoming Events Section */}
+          <div>
+            <div className="text-center" style={{ marginBottom: '4rem' }}>
+              <h2 style={{ fontSize: '4rem' }}>Upcoming Events</h2>
+              <p style={{ fontSize: '1.25rem' }}>Join us on the campaign trail. Stand up for Caprica.</p>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+              
+              <div className="card card-dark" style={{ display: 'flex', flexDirection: 'column' }}>
+                <p style={{ color: 'var(--color-yellow)', fontWeight: '800', marginBottom: '1rem', letterSpacing: '0.1em' }}>OCT 12 / CAPRICA CITY</p>
+                <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Green Economy Townhall</h3>
+                <p style={{ flexGrow: 1 }}>Join party leadership for a public discussion on sustainable job creation in the urban sector.</p>
+                <button className="btn btn-outline" style={{ width: '100%', marginTop: '2rem' }}>RSVP</button>
+              </div>
+
+              <div className="card card-dark" style={{ display: 'flex', flexDirection: 'column' }}>
+                <p style={{ color: 'var(--color-yellow)', fontWeight: '800', marginBottom: '1rem', letterSpacing: '0.1em' }}>OCT 18 / DELPHI</p>
+                <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>DGL Alliance Rally</h3>
+                <p style={{ flexGrow: 1 }}>The first joint rally with the Alternative Labor Party. Featuring speeches from key candidates.</p>
+                <button className="btn btn-outline" style={{ width: '100%', marginTop: '2rem' }}>RSVP</button>
+              </div>
+
+              <div className="card card-dark" style={{ display: 'flex', flexDirection: 'column' }}>
+                <p style={{ color: 'var(--color-yellow)', fontWeight: '800', marginBottom: '1rem', letterSpacing: '0.1em' }}>OCT 25 / APOLLONIA</p>
+                <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Coastal Clean-up Drive</h3>
+                <p style={{ flexGrow: 1 }}>A grassroots community action event focused on restoring our beautiful shorelines.</p>
+                <button className="btn btn-outline" style={{ width: '100%', marginTop: '2rem' }}>RSVP</button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <section className="section section-yellow" style={{ borderBottom: 'none' }}>
         <div className="container text-center">
           <h2 style={{ fontSize: '5rem' }}>Ready to make a difference?</h2>
