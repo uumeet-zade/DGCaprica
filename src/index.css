@@ -44,13 +44,13 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-h1 { font-size: 5rem; }
-h2 { font-size: 4rem; }
-h3 { font-size: 2.5rem; }
+h1 { font-size: 4rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
 
 p {
   margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 400;
   color: var(--color-text-muted);
 }
@@ -113,7 +113,7 @@ p {
 
 /* Sections */
 .section {
-  padding: 10rem 0; /* Huge airy padding for premium feel */
+  padding: 6rem 0; /* Scaled down airy padding */
 }
 
 .section-light {
@@ -154,13 +154,13 @@ p {
 
 .card {
   background: var(--color-white);
-  padding: 5rem 3rem;
-  transition: background-color 0.4s ease;
+  padding: 3.5rem 2.5rem;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   height: 100%;
 }
 
 .card:hover {
-  background-color: var(--color-pure-white);
+  transform: translateY(-8px);
 }
 
 .card-dark {
@@ -173,7 +173,7 @@ p {
 }
 
 .card-dark:hover {
-  background-color: var(--color-teal-dark);
+  transform: translateY(-8px);
 }
 
 /* Navbar Sleek */
@@ -280,9 +280,10 @@ p {
   min-height: 90vh;
   display: flex;
   align-items: center;
-  background-color: var(--color-green);
+  background-color: var(--color-text);
   color: var(--color-pure-white);
   position: relative;
+  overflow: hidden;
 }
 
 .hero p {

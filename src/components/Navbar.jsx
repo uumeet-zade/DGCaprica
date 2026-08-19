@@ -6,8 +6,8 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo">
-          <img src={logo} alt="DGC Logo" style={{ height: '80px', width: 'auto' }} />
-          <span style={{ fontSize: '1.5rem', marginLeft: '0.5rem' }}>Democratic Greens</span>
+          <img src={logo} alt="DGC Logo" style={{ height: '55px', width: 'auto' }} />
+          <span style={{ fontSize: '1.25rem', marginLeft: '0.5rem' }}>Democratic Greens</span>
         </Link>
         <ul className="navbar-links">
           <li><Link to="/about">About Us</Link></li>

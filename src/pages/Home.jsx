@@ -3,6 +3,14 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
   const words = ['Greener', 'Safer', 'Resilient', 'Prosperous', 'Fairer'];
+  const images = [
+    'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1920&h=1080', // Greener
+    'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=1920&h=1080', // Safer
+    'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=1920&h=1080', // Resilient
+    'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=1920&h=1080', // Prosperous
+    'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1920&h=1080', // Fairer
+  ];
+
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -13,7 +21,7 @@ export default function Home() {
     const interval = setInterval(() => {
       setIsTransitioning(true);
       setIndex((current) => current + 1);
-    }, 2500);
+    }, 3500); // Slowed down slightly so users can appreciate the images
     return () => clearInterval(interval);
   }, []);
 
@@ -38,11 +46,48 @@ export default function Home() {
 
   // Clone the first word to the end to create a seamless infinite loop
   const displayWords = [...words, words[0]];
+  const displayImages = [...images, images[0]];
 
   return (
     <div>
       <section className="hero">
-        <div className="container">
+        {/* Background Image Slider */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0
+        }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            width: '100%',
+            height: '100%',
+            transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.68, -0.2, 0.265, 1.2)' : 'none',
+            transform: `translateY(calc(-${index} * 100%))`
+          }}>
+            {displayImages.map((img, i) => (
+              <div key={i} style={{
+                flexShrink: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: `url('${img}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }} />
+            ))}
+          </div>
+          {/* Dark Overlay for Text Legibility */}
+          <div style={{
+            position: 'absolute',
+            top: 0, left: 0, width: '100%', height: '100%',
+            background: 'linear-gradient(to right, rgba(8, 6, 13, 0.95) 0%, rgba(8, 6, 13, 0.4) 100%)'
+          }} />
+        </div>
+
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <h1 style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
               <span>A</span>
