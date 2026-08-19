@@ -6,7 +6,7 @@ export default function Home() {
   const images = [
     'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=1920&h=1080', // Greener
     'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=1920&h=1080', // Safer
-    'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&q=80&w=1920&h=1080', // Resilient
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lifeboat.17-31.underway.arp.jpg/1280px-Lifeboat.17-31.underway.arp.jpg', // Resilient (Generic Lifeboat / Coast Guard)
     'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&q=80&w=1920&h=1080', // Prosperous
     'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=1920&h=1080', // Fairer
   ];
