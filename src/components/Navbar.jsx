@@ -12,10 +12,10 @@ export default function Navbar() {
         <ul className="navbar-links">
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/platform">Platform</Link></li>
-          <li><Link to="/leadership">Leadership</Link></li>
+          <li><Link to="/members">Our Members</Link></li>
+          <li><Link to="/elections">Elections</Link></li>
           <li><Link to="/partnerships">Partnerships</Link></li>
-          <li><Link to="/join">Get Involved</Link></li>
-          <li><Link to="/donate" className="btn btn-nav">Donate</Link></li>
+          <li><Link to="/donate" className="btn btn-nav">Support Us</Link></li>
         </ul>
       </div>
     </nav>
