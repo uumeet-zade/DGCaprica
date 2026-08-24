@@ -76,7 +76,7 @@ export default function Members() {
               <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1rem', border: '2px solid var(--color-green)' }}></div>
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>[ Name TBA ]</h3>
               <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Constituency MP</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Tauron Border District</p>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Mezata</p>
             </div>
           </div>
         </div>
@@ -95,21 +95,21 @@ export default function Members() {
               <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }}></div>
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>[ Name TBA ]</h3>
               <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Mayor</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Caprica City</p>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Montiablo</p>
             </div>
             
             <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
               <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }}></div>
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>[ Name TBA ]</h3>
               <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>City Council</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Delphi District 4</p>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Ventura</p>
             </div>
 
             <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
               <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }}></div>
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>[ Name TBA ]</h3>
               <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Assembly Member</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Apollonia Region</p>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Ambarino</p>
             </div>
           </div>
         </div>

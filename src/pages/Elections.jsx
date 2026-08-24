@@ -1,6 +1,11 @@
 import henrikImg from '../assets/Heinrikofficialportrait.png';
 
 export default function Elections() {
+  const governorRaces = [
+    { region: "Cambria", candidate: "Henrik Vasmer", status: "Incumbent & Official Endorsement", isTBA: false, img: henrikImg },
+    { region: "Montiablo", candidate: "[ Candidate TBA ]", status: "Candidate", isTBA: true, img: null }
+  ];
+
   return (
     <div>
       <header className="page-header">
@@ -19,19 +24,19 @@ export default function Elections() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
             
-            <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
-              <img src={henrikImg} alt="Henrik Vasmer" style={{ width: '120px', height: '120px', objectFit: 'cover', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }} />
-              <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>Henrik Vasmer</h3>
-              <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Incumbent & Official Endorsement</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Governor of Cambria</p>
-            </div>
-            
-            <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
-              <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }}></div>
-              <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>[ Candidate TBA ]</h3>
-              <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Candidate</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Governor of Delphi</p>
-            </div>
+            {governorRaces.map((race, index) => (
+              <div key={index} className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
+                {race.img ? (
+                  <img src={race.img} alt={race.candidate} style={{ width: '120px', height: '120px', objectFit: 'cover', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }} />
+                ) : (
+                  <div style={{ width: '120px', height: '120px', backgroundColor: '#e0e0e0', margin: '0 auto 1.5rem', border: '2px solid var(--color-green)' }}></div>
+                )}
+                
+                <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem', color: 'var(--color-text)' }}>{race.candidate}</h3>
+                <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{race.status}</p>
+                <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Governor of {race.region}</p>
+              </div>
+            ))}
 
           </div>
         </div>
