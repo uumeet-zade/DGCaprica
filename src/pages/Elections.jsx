@@ -1,11 +1,12 @@
 import henrikImg from '../assets/Heinrikofficialportrait.png';
 import mussoliniImg from '../assets/Mussolini.png';
+import trumpImg from '../assets/Trump.jpg';
 
 export default function Elections() {
   const governorRaces = [
     { region: "Cambria", candidate: "Henrik Vasmer", status: "Incumbent & Official Endorsement", isTBA: false, img: henrikImg },
-    { region: "Kazana", candidate: "[ Candidate TBA ]", status: "Candidate", isTBA: true, img: null },
-    { region: "Moeras", candidate: "Benito A. A. Mussolini", status: "Official Candidate", isTBA: false, img: mussoliniImg }
+    { region: "Moeras", candidate: "Benito A. A. Mussolini", status: "Official Candidate", isTBA: false, img: mussoliniImg },
+    { region: "Myrati", candidate: "Donald J. Trump", status: "Official Candidate", isTBA: false, img: trumpImg }
   ];
 
   return (
@@ -24,7 +25,7 @@ export default function Elections() {
             <h2 style={{ fontSize: '3rem', color: 'var(--color-white)' }}>Governor Candidates</h2>
             <p style={{ fontSize: '1.25rem', color: 'var(--color-green)' }}>The future leaders of the 2066 Gubernatorial elections.</p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
             
             {governorRaces.map((race, index) => (
               <div key={index} className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', backgroundColor: 'var(--color-white)' }}>
