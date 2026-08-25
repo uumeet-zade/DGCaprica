@@ -1,9 +1,11 @@
 import henrikImg from '../assets/Heinrikofficialportrait.png';
+import mussoliniImg from '../assets/Mussolini.png';
 
 export default function Elections() {
   const governorRaces = [
     { region: "Cambria", candidate: "Henrik Vasmer", status: "Incumbent & Official Endorsement", isTBA: false, img: henrikImg },
-    { region: "Montiablo", candidate: "[ Candidate TBA ]", status: "Candidate", isTBA: true, img: null }
+    { region: "Kazana", candidate: "[ Candidate TBA ]", status: "Candidate", isTBA: true, img: null },
+    { region: "Moeras", candidate: "Benito A. A. Mussolini", status: "Official Candidate", isTBA: false, img: mussoliniImg }
   ];
 
   return (
