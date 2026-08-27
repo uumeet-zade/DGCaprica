@@ -33,7 +33,7 @@ export default function Members() {
               <img src={asterImg} alt="Aster Skye" style={{ width: '120px', height: '120px', objectFit: 'cover', margin: '0 auto 1rem', border: '2px solid var(--color-yellow)' }} />
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>Aster Skye</h3>
               <p style={{ color: 'var(--color-yellow)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Party Chairman</p>
-              <p style={{ fontSize: '1rem', marginTop: '0.5rem' }}>Minister of Housing and Urban Development</p>
+              <p style={{ fontSize: '1rem', marginTop: '0.5rem' }}>Former Minister of Housing and Urban Development</p>
             </div>
             <div className="card card-dark text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <img src={henrikImg} alt="Henrik Vasmer" style={{ width: '120px', height: '120px', objectFit: 'cover', margin: '0 auto 1rem', border: '2px solid var(--color-yellow)' }} />

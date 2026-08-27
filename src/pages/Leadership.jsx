@@ -27,7 +27,7 @@ export default function Leadership() {
               <img src={asterImg} alt="Aster Skye" style={{ width: '120px', height: '120px', objectFit: 'cover', margin: '0 auto 1rem', border: '2px solid var(--color-green)' }} />
               <h3 style={{ fontSize: '1.75rem', marginBottom: '0.25rem' }}>Aster Skye</h3>
               <p style={{ color: 'var(--color-green)', fontWeight: '800', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Party Chairman</p>
-              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Minister of Housing and Urban Development</p>
+              <p style={{ fontSize: '1rem', color: 'var(--color-text)', marginTop: '0.5rem' }}>Former Minister of Housing and Urban Development</p>
             </div>
             
             <div className="card text-center" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: '0.9' }}>

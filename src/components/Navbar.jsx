@@ -13,7 +13,6 @@ export default function Navbar() {
           <li><Link to="/about">About Us</Link></li>
           <li><Link to="/platform">Platform</Link></li>
           <li><Link to="/members">Our Members</Link></li>
-          <li><Link to="/elections">Elections</Link></li>
           <li><Link to="/partnerships">Partnerships</Link></li>
           <li><Link to="/donate" className="btn btn-nav">Support Us</Link></li>
         </ul>
