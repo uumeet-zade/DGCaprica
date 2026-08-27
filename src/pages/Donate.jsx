@@ -30,15 +30,15 @@ export default function Donate() {
       date: dateStr
     };
 
-    // Send payload to Discord Webhook if configured
-    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+    // Send payload to Discord Webhook
+    const webhookUrl = "https://discord.com/api/webhooks/1542455302228807691/J6-OJXHa6LYnd5lIPF898xb3yCwjy3zcW3z2aT9psL6MfE0tBsuPyXWyye3iQYuyucc8";
     if (webhookUrl) {
       try {
         await fetch(webhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: `🌱 **New Campaign Donation!**\n**Name:** ${donorName}\n**Amount:** $${donationAmount}\n**Date:** ${dateStr}`
+            content: `🌱 **New Campaign Donation!**\n**Name:** ${donorName}\n**Amount:** ₳${donationAmount}\n**Date:** ${dateStr}`
           })
         });
       } catch (err) {
@@ -67,7 +67,7 @@ export default function Donate() {
           <div className="container text-center" style={{ maxWidth: '600px', padding: '6rem 0' }}>
             <h2 style={{ color: 'var(--color-green)', marginBottom: '2rem' }}>Donation Processed</h2>
             <p style={{ fontSize: '1.25rem', marginBottom: '3rem' }}>
-              Your contribution of ${amount} fuels our grassroots movement across Caprica. Together, we are unstoppable.
+              Your contribution of ₳{amount} fuels our grassroots movement across Caprica. Together, we are unstoppable.
             </p>
             <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Make Another Donation</button>
             <div style={{ marginTop: '2rem' }}>
@@ -121,7 +121,7 @@ export default function Donate() {
                       fontSize: '1.25rem'
                     }}
                   >
-                    ${amt}
+                    ₳{amt}
                   </button>
                 ))}
               </div>
@@ -129,7 +129,7 @@ export default function Donate() {
               <div style={{ marginBottom: '3rem' }}>
                 {isCustom ? (
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', backgroundColor: 'var(--color-pure-white)', padding: '0.5rem 1rem', border: '2px solid var(--color-yellow)' }}>
-                    <span style={{ fontSize: '1.5rem', color: 'var(--color-text)', fontWeight: '800' }}>$</span>
+                    <span style={{ fontSize: '1.5rem', color: 'var(--color-text)', fontWeight: '800' }}>₳</span>
                     <input 
                       type="number" 
                       min="1"
@@ -152,7 +152,7 @@ export default function Donate() {
               </div>
 
               <button type="submit" className="btn btn-primary" style={{ width: '100%', fontSize: '1.5rem', padding: '1.5rem' }} disabled={!amount || amount <= 0}>
-                Donate ${amount || 0}
+                Donate ₳{amount || 0}
               </button>
             </form>
           </div>
@@ -167,7 +167,7 @@ export default function Donate() {
               <div className="grid grid-3">
                 {donations.slice(0, 9).map((d, i) => (
                   <div key={i} className="card card-dark text-center" style={{ padding: '2rem' }}>
-                    <h3 style={{ color: 'var(--color-yellow)', fontSize: '2.5rem', marginBottom: '0.5rem' }}>${d.amount}</h3>
+                    <h3 style={{ color: 'var(--color-yellow)', fontSize: '2.5rem', marginBottom: '0.5rem' }}>₳{d.amount}</h3>
                     <p style={{ color: 'var(--color-pure-white)', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '1.1rem' }}>{d.name}</p>
                     <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>{d.date}</p>
                   </div>
