@@ -169,7 +169,7 @@ export default function Donate() {
                   <div key={i} className="card card-dark text-center" style={{ padding: '2rem' }}>
                     <h3 style={{ color: 'var(--color-yellow)', fontSize: '2.5rem', marginBottom: '0.5rem' }}>₳{d.amount}</h3>
                     <p style={{ color: 'var(--color-pure-white)', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '1.1rem' }}>{d.name}</p>
-                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>{d.date}</p>
+                    <p style={{ color: 'var(--color-pure-white)', fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: '500' }}>{d.date}</p>
                   </div>
                 ))}
               </div>
