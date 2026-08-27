@@ -1,16 +1,57 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Donate() {
   const [amount, setAmount] = useState(27);
+  const [name, setName] = useState('');
   const [isCustom, setIsCustom] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [donations, setDonations] = useState([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('dgc_donations');
+    if (saved) {
+      setDonations(JSON.parse(saved));
+    }
+  }, []);
 
   const amounts = [10, 27, 50, 100];
 
-  const handleDonate = (e) => {
+  const handleDonate = async (e) => {
     e.preventDefault();
+    
+    const donorName = name.trim() || 'Anonymous Citizen';
+    const donationAmount = Number(amount);
+    const dateStr = new Date().toLocaleDateString();
+
+    const newDonation = {
+      name: donorName,
+      amount: donationAmount,
+      date: dateStr
+    };
+
+    // Send payload to Discord Webhook if configured
+    const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: `🌱 **New Campaign Donation!**\n**Name:** ${donorName}\n**Amount:** $${donationAmount}\n**Date:** ${dateStr}`
+          })
+        });
+      } catch (err) {
+        console.error("Failed to send Discord webhook", err);
+      }
+    }
+    
+    const updatedDonations = [newDonation, ...donations];
+    setDonations(updatedDonations);
+    localStorage.setItem('dgc_donations', JSON.stringify(updatedDonations));
+    
     setSubmitted(true);
+    setName('');
     window.scrollTo(0, 0);
   };
 
@@ -56,6 +97,16 @@ export default function Donate() {
             </p>
             
             <form onSubmit={handleDonate}>
+              <div style={{ marginBottom: '2rem' }}>
+                <input 
+                  type="text" 
+                  placeholder="Your Name (Optional)" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  style={{ width: '100%', padding: '1rem', fontSize: '1.25rem', border: '2px solid transparent', outline: 'none', backgroundColor: 'var(--color-pure-white)', color: 'var(--color-text)' }}
+                />
+              </div>
+
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
                 {amounts.map(amt => (
                   <button 
@@ -104,8 +155,27 @@ export default function Donate() {
                 Donate ${amount || 0}
               </button>
             </form>
-
           </div>
+
+          {/* Recent Donations Feed */}
+          {donations.length > 0 && (
+            <div style={{ marginTop: '8rem' }}>
+              <div className="text-center" style={{ marginBottom: '4rem' }}>
+                <h2 style={{ fontSize: '3rem' }}>Grassroots Support</h2>
+                <p style={{ fontSize: '1.25rem' }}>See who is powering the Democratic Greens.</p>
+              </div>
+              <div className="grid grid-3">
+                {donations.slice(0, 9).map((d, i) => (
+                  <div key={i} className="card card-dark text-center" style={{ padding: '2rem' }}>
+                    <h3 style={{ color: 'var(--color-yellow)', fontSize: '2.5rem', marginBottom: '0.5rem' }}>${d.amount}</h3>
+                    <p style={{ color: 'var(--color-pure-white)', fontWeight: '800', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '1.1rem' }}>{d.name}</p>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', marginTop: '0.5rem' }}>{d.date}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
       </section>
     </div>
