@@ -7,6 +7,7 @@ export default function Donate() {
   const [isCustom, setIsCustom] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [donations, setDonations] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const saved = localStorage.getItem('dgc_donations');
@@ -19,9 +20,34 @@ export default function Donate() {
 
   const handleDonate = async (e) => {
     e.preventDefault();
+    setError('');
     
-    const donorName = name.trim() || 'Anonymous Citizen';
+    let donorName = name.trim();
+    
+    if (donorName) {
+      if (donorName.length > 30) {
+        setError('Name cannot exceed 30 characters.');
+        return;
+      }
+      if (!/^[a-zA-Z\s]+$/.test(donorName)) {
+        setError('Name must contain only basic letters and spaces (no ASCII art or special characters).');
+        return;
+      }
+    } else {
+      donorName = 'Anonymous Citizen';
+    }
+
     const donationAmount = Number(amount);
+    
+    if (isNaN(donationAmount) || donationAmount < 1) {
+      setError('Please enter a valid donation amount.');
+      return;
+    }
+    if (donationAmount > 3300) {
+      setError('To maintain our grassroots movement, we cap individual donations at ₳3,300.');
+      return;
+    }
+
     const dateStr = new Date().toLocaleDateString();
 
     const newDonation = {
@@ -97,12 +123,19 @@ export default function Donate() {
             </p>
             
             <form onSubmit={handleDonate}>
+              {error && (
+                <div style={{ backgroundColor: '#e53e3e', color: 'var(--color-pure-white)', padding: '1rem', marginBottom: '2rem', fontWeight: 'bold', borderLeft: '4px solid #c53030' }}>
+                  {error}
+                </div>
+              )}
+              
               <div style={{ marginBottom: '2rem' }}>
                 <input 
                   type="text" 
                   placeholder="Your Name (Optional)" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  maxLength="30"
                   style={{ width: '100%', padding: '1rem', fontSize: '1.25rem', border: '2px solid transparent', outline: 'none', backgroundColor: 'var(--color-pure-white)', color: 'var(--color-text)' }}
                 />
               </div>
@@ -133,6 +166,7 @@ export default function Donate() {
                     <input 
                       type="number" 
                       min="1"
+                      max="3300"
                       value={amount} 
                       onChange={(e) => setAmount(e.target.value)}
                       style={{ border: 'none', background: 'transparent', fontSize: '1.5rem', width: '100%', outline: 'none', color: 'var(--color-text)', fontWeight: '800' }}
