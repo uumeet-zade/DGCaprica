@@ -4,7 +4,7 @@ import trumpImg from '../assets/Trump.jpg';
 
 export default function Elections() {
   const governorRaces = [
-    { region: "Cambria", candidate: "Henrik Vasmer", status: "Incumbent & Official Endorsement", isTBA: false, img: henrikImg },
+    { region: "Cambria", candidate: "Henrik Vasmer", status: "Incumbent", isTBA: false, img: henrikImg },
     { region: "Moeras", candidate: "Benito A. A. Mussolini", status: "Official Candidate", isTBA: false, img: mussoliniImg },
     { region: "Myrati", candidate: "Donald J. Trump", status: "Official Candidate", isTBA: false, img: trumpImg }
   ];
